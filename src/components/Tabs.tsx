@@ -4,10 +4,13 @@ import { Prodact } from '../types/Prodact';
 
 type Props = {
   products: Prodact[]
-  filterProductsByOwner: (id: number) => number;
+  // filterProductsByOwner: (id: number) => number;
 };
 
-export const Tabs: React.FC<Props> = ({ products, filterProductsByOwner }) => {
+export const Tabs: React.FC<Props> = ({
+  products,
+  // filterProductsByOwner
+}) => {
   const usersSet = new Set(products.map(product => product.category?.user));
   const users = Array.from(usersSet);
 
@@ -25,7 +28,7 @@ export const Tabs: React.FC<Props> = ({ products, filterProductsByOwner }) => {
           data-cy="FilterUser"
           href="#/"
           key={user?.id}
-          onChange={() => filterProductsByOwner(user?.id)}
+          // onChange={() => filterProductsByOwner(user?.id)}
         >
           {user?.name}
         </a>

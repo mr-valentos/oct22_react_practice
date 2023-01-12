@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.scss';
 
-import cn from 'classnames';
+// import cn from 'classnames';
 import usersFromServer from './api/users';
 import productsFromServer from './api/products';
 import categoriesFromServer from './api/categories';
@@ -37,16 +37,16 @@ const productWithCategory: Prodact[] = productsFromServer.map(product => ({
 // }))
 
 export const App: React.FC = () => {
-  const [products, setProduct] = useState(productWithCategory);
-  const [filterOwnersById, setFilterOwners] = useState(0);
+  const [products] = useState(productWithCategory);
+  // const [filterOwnersById, setFilterOwners] = useState(0);
 
   // const visibleProduct = products.filter(product => (
   //   product.category?.user.id === filterOwnersById;
   // ));
 
-  const filterProductsByOwner = (id: number) => {
-    setFilterOwners(id);
-  };
+  // const filterProductsByOwner = (id: number) => {
+  //  setFilterOwners(id);
+  // };
 
   return (
     <div className="section">
@@ -57,7 +57,10 @@ export const App: React.FC = () => {
           <nav className="panel">
             <p className="panel-heading">Filters</p>
 
-            <Tabs products={products} filterProductsByOwner={filterProductsByOwner} />
+            <Tabs
+              products={products}
+              // filterProductsByOwner={filterProductsByOwner}
+            />
 
             <div className="panel-block">
               <p className="control has-icons-left has-icons-right">
